@@ -8,8 +8,8 @@ Group:		X11/Libraries
 Source0:	http://dev.openbossa.org/%{name}/downloads/source/%{name}/%{name}-%{version}.tar.gz
 # Source0-md5:	7435e3631fd44dce4086afe8698cdb13
 URL:		http://dev.openbossa.org/trac/qedje
-BuildRequires:	eet
-BuildRequires:	qzion
+BuildRequires:	eet-devel
+BuildRequires:	qzion-devel
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
