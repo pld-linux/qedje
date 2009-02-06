@@ -30,7 +30,7 @@ qedje
 
 %package devel
 Summary:        Header files for qedje library
-Summary(pl.UTF-8):      Pliki nag舿B贸wkowe biblioteki qedje
+Summary(pl.UTF-8):      Pliki nag艂贸wkowe biblioteki qedje
 Group:          Development/Libraries
 Requires:       %{name} = %{version}-%{release}
 
@@ -38,7 +38,7 @@ Requires:       %{name} = %{version}-%{release}
 Header files for qedje library.
 
 %description devel -l pl.UTF-8
-Pliki nag舿B贸wkowe biblioteki qedje.
+Pliki nag艂贸wkowe biblioteki qedje.
 
 %prep
 %setup -q
