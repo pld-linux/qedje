@@ -1,23 +1,23 @@
 
-%define		qtver	4.4.3
+%define		qtver	4.5.0
 
 Summary:	qedje
 Summary(pl.UTF-8):	qedje
 Name:		qedje
-Version:	0.3.0
-Release:	1
+Version:	0.4.0
+Release:	0.git.1
 License:	GPL v2
 Group:		X11/Libraries
-Source0:	http://dev.openbossa.org/%{name}/downloads/source/%{name}/%{name}-%{version}.tar.gz
-# Source0-md5:	7435e3631fd44dce4086afe8698cdb13
-Patch0:		%{name}-lib64.patch
+#Source0:	http://dev.openbossa.org/%{name}/downloads/source/%{name}/%{name}-%{version}.tar.gz
+Source0:	%{name}-%{version}-git.tar.gz
+# Source0-md5:	062a73e4ce76ae4513aa772504db572d
 URL:		http://dev.openbossa.org/trac/qedje
 BuildRequires:	QtCore-devel >= %{qtver}
 BuildRequires:	QtGui-devel >= %{qtver}
 BuildRequires:	eet-devel
 BuildRequires:	pkgconfig
 BuildRequires:	qt4-qmake >= %{qtver}
-BuildRequires:	qzion-devel
+BuildRequires:	qzion-devel >= 0.4.0
 BuildRequires:	rpmbuild(macros) >= 1.164
 Requires(post,postun):	/sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -41,20 +41,26 @@ Header files for qedje library.
 Pliki nagłówkowe biblioteki qedje.
 
 %prep
-%setup -q
-%patch0 -p0
+%setup -q -n %{name}-%{version}-git
 
 %build
-qmake-qt4 \
-	PREFIX=%{_prefix} \
-	LIB=%{_lib}
+install -d build
+cd build
+%cmake \
+	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
+	-DCMAKE_BUILD_TYPE=%{!?debug:release}%{?debug:debug} \
+%if "%{_lib}" == "lib64"
+	-DLIB_SUFFIX=64 \
+%endif
+	../
+
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	INSTALL_ROOT=$RPM_BUILD_ROOT
+%{__make} -C build install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -64,10 +70,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/qedje_viewer
 %attr(755,root,root) %{_libdir}/libqedje.so.*.*.*
-%attr(755,root,root) %{_libdir}/libqedje.prl
 %attr(755,root,root) %ghost %{_libdir}/libqedje.so.?
-%attr(755,root,root) %ghost %{_libdir}/libqedje.so.?.?
 
 %files devel
 %defattr(644,root,root,755)
