@@ -5,7 +5,7 @@ Summary:	qedje
 Summary(pl.UTF-8):	qedje
 Name:		qedje
 Version:	0.4.0
-Release:	0.git.1
+Release:	0.git.2
 License:	GPL v2
 Group:		X11/Libraries
 #Source0:	http://dev.openbossa.org/%{name}/downloads/source/%{name}/%{name}-%{version}.tar.gz
