@@ -16,6 +16,7 @@ BuildRequires:	QtCore-devel >= %{qtver}
 BuildRequires:	QtGui-devel >= %{qtver}
 BuildRequires:	eet-devel
 BuildRequires:	pkgconfig
+BuildRequires:	python-PyQt4-devel
 BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	qzion-devel >= 0.4.0
 BuildRequires:	rpmbuild(macros) >= 1.164
