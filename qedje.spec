@@ -14,9 +14,11 @@ Source0:	%{name}-%{version}-git.tar.gz
 URL:		http://dev.openbossa.org/trac/qedje
 BuildRequires:	QtCore-devel >= %{qtver}
 BuildRequires:	QtGui-devel >= %{qtver}
+BuildRequires:	cmake
 BuildRequires:	eet-devel
 BuildRequires:	pkgconfig
 BuildRequires:	python-PyQt4-devel
+BuildRequires:	qt4-build
 BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	qzion-devel >= 0.4.0
 BuildRequires:	rpmbuild(macros) >= 1.164
