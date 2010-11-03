@@ -1,0 +1,9 @@
+--- src/CMakeLists.txt.orig	2009-05-11 13:24:24.000000000 +0200
++++ src/CMakeLists.txt	2010-11-03 16:36:26.637240486 +0100
+@@ -35,5 +35,5 @@
+ 
+ if (NOT WIN32)
+     configure_file(qedje.pc.cmake qedje.pc @ONLY)
+-    install(FILES ${CMAKE_BINARY_DIR}/qedje.pc DESTINATION ${LIB_INSTALL_DIR}/pkgconfig/)
++    install(FILES ${CMAKE_BINARY_DIR}/src/qedje.pc DESTINATION ${LIB_INSTALL_DIR}/pkgconfig/)
+ endif (NOT WIN32)
