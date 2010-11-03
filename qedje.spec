@@ -5,13 +5,14 @@ Summary:	qedje
 Summary(pl.UTF-8):	qedje
 Name:		qedje
 Version:	0.4.0
-Release:	0.git.3
+Release:	0.git.4
 License:	GPL v2
 Group:		X11/Libraries
 #Source0:	http://dev.openbossa.org/%{name}/downloads/source/%{name}/%{name}-%{version}.tar.gz
 Source0:	%{name}-%{version}-git.tar.gz
 # Source0-md5:	062a73e4ce76ae4513aa772504db572d
 URL:		http://dev.openbossa.org/trac/qedje
+Patch0:		%{name}-pc.patch
 BuildRequires:	QtCore-devel >= %{qtver}
 BuildRequires:	QtGui-devel >= %{qtver}
 BuildRequires:	cmake
@@ -45,6 +46,7 @@ Pliki nagłówkowe biblioteki qedje.
 
 %prep
 %setup -q -n %{name}-%{version}-git
+%patch0 -p0
 
 %build
 install -d build
