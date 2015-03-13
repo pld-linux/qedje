@@ -5,7 +5,7 @@ Summary:	qedje
 Summary(pl.UTF-8):	qedje
 Name:		qedje
 Version:	0.4.0
-Release:	0.git.4
+Release:	0.git.5
 License:	GPL v2
 Group:		X11/Libraries
 #Source0:	http://dev.openbossa.org/%{name}/downloads/source/%{name}/%{name}-%{version}.tar.gz
@@ -18,11 +18,11 @@ BuildRequires:	QtGui-devel >= %{qtver}
 BuildRequires:	cmake
 BuildRequires:	eet-devel
 BuildRequires:	pkgconfig
-BuildRequires:	python-PyQt4-devel
 BuildRequires:	qt4-build
 BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	qzion-devel >= 0.4.0
 BuildRequires:	rpmbuild(macros) >= 1.164
+BuildRequires:	sip-PyQt4
 Requires(post,postun):	/sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
