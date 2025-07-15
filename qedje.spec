@@ -46,7 +46,7 @@ Pliki nagłówkowe biblioteki qedje.
 
 %prep
 %setup -q -n %{name}-%{version}-git
-%patch0 -p0
+%patch -P0 -p0
 
 %build
 install -d build
